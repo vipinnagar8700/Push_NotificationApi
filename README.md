@@ -32,3 +32,13 @@ app.post('/send-notification', async (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+// index.js
+const admin = require('firebase-admin');
+const serviceAccount = require('./google-services.json');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+module.exports = admin;
+//Firebase initialise
